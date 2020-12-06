@@ -1,0 +1,6 @@
+1. npm install express --save
+2. Create server.js file
+3. Create python script file
+4. Install python and point to shell in script
+Ref :-
+https://medium.com/@HolmesLaurence/integrating-node-and-python-6b8454bfc272
