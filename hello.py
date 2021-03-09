@@ -26,6 +26,9 @@ def get_sentiment(text):
     """
     scores = sid.polarity_scores(text)
     return max(scores, key=lambda x: scores[x])
+@app.route('/',methods = ['GET'])
+def hello():
+    return "Welcom to HowHi App";
     
 @app.route('/funapp/api/v1/sentiment',methods = ['GET'])
 def process():
