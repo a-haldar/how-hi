@@ -26,10 +26,14 @@ def get_sentiment(text):
     """
     scores = sid.polarity_scores(text)
     return max(scores, key=lambda x: scores[x])
-@app.route('/app',methods = ['GET'])
+@app.route('/',methods = ['GET'])
 def hello():
-    return "<html><head>Sentiment Analyzer</head><title>Welcom to HowHi App</title><body>Download the app here <a href='../res/app-release-unsigned.apk'>App</a></body></html>";
-    
+    return "<html><head>Sentiment Analyzer</head><title>Welcom to HowHi App</title><body>Download the app here <a href='/res/app-release-unsigned.apk'>App</a></body></html>";
+
+@app.route('/res/<path:filename>', methods=['GET', 'POST'])
+def download(filename):    
+    return send_from_directory(directory='res', filename=filename)
+
 @app.route('/funapp/api/v1/sentiment',methods = ['GET'])
 def process():
     text = request.args.get('text')
